@@ -135,7 +135,7 @@ while run:
         text = font.render("Presiona ESPACIO para jugar", True, (255, 255, 255))
         img = pygame.image.load("historia.jpg")
         window.blit(img, (0, 0))
-        window.blit(text, (250, 500))
+        window.blit(text, (283, 500))
         if keys[pygame.K_SPACE]:
             play = True 
 
