@@ -16,6 +16,7 @@ class GameSprite(pygame.sprite.Sprite):
         self.rect.y = y
         self.player = 1
         self.direccion = 0  
+        self.nombre = "hola"
         
     def draw(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
