@@ -1,5 +1,5 @@
 import pygame
-
+pygame.font.init()
 window = pygame.display.set_mode((1000, 600))
 pygame.display.set_caption("nombre")
 clock = pygame.time.Clock()
@@ -121,15 +121,24 @@ izq = Player("ranaverde.png", 50, 50, 300, 559, 1, SALTO_VERDE, SALTO_VERDE_IZQ)
 der = Player("morada.png", 45, 40, 300, 565, 1, SALTO_MORADA, SALTO_MORADA_IZQ)
 der.player = 2
 
-play = True   
+play = False  
 run = True
 while run:
     keys = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-        
+
     window.fill((0, 0, 0))
+    if not play:
+        font = pygame.font.SysFont("Arial", 36)
+        text = font.render("Presiona ESPACIO para jugar", True, (255, 255, 255))
+        img = pygame.image.load("historia.jpg")
+        window.blit(img, (0, 0))
+        window.blit(text, (250, 500))
+        if keys[pygame.K_SPACE]:
+            play = True 
+
     if play:
         izq.draw()
         izq.update(keys)
