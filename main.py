@@ -51,18 +51,17 @@ class Player(GameSprite):
                     self.image = self.images[1]
                     self.direccion = 0
                
-               
             if keys[pygame.K_w]:
                 if not self.salto_presionado and not self.esta_saltando:
                     self.esta_saltando = True
                     self.velocidad_y = -self.altura_salto
                     if keys[pygame.K_d]: 
                         self.velocidad_x_salto = self.speed * 2.0
-                        self.image = self.images[1]
+                        self.image = self.images_salto[1]
                         self.direccion = 0
                     elif keys[pygame.K_a]: 
                         self.velocidad_x_salto = -self.speed * 2.0
-                        self.image = self.images[0]
+                        self.image = self.images_salto[0]
                         self.direccion = 1
                     else: 
                         self.velocidad_x_salto = 0
@@ -90,11 +89,11 @@ class Player(GameSprite):
                     
                     if keys[pygame.K_RIGHT]: 
                         self.velocidad_x_salto = self.speed * 2.0
-                        self.image = self.images[1]
+                        self.image = self.images_salto[0]
                         self.direccion = 0
                     elif keys[pygame.K_LEFT]:  
                         self.velocidad_x_salto = -self.speed * 2.0
-                        self.image = self.images[0]
+                        self.image = self.images_salto[1]
                         self.direccion = 1
                     else:  
                         self.velocidad_x_salto = 0
@@ -118,8 +117,8 @@ class Player(GameSprite):
                 self.velocidad_y = 0
                 self.velocidad_x_salto = 0 
     
-izq = Player("ranaverde.png", 50, 50, 300, 559, 1)
-der = Player("morada.png", 45, 40, 300, 565, 1)
+izq = Player("ranaverde.png", 50, 50, 300, 559, 1, SALTO_VERDE, SALTO_VERDE_IZQ)
+der = Player("morada.png", 45, 40, 300, 565, 1, SALTO_MORADA, SALTO_MORADA_IZQ)
 der.player = 2
 
 play = True   
