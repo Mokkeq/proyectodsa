@@ -285,6 +285,9 @@ while run:
             pygame.mixer.music.stop() 
     
     if play:
+        if not pygame.mixer.music.get_busy():
+            pygame.mixer.music.load("musica.mp3")
+            pygame.mixer.music.play(loops=-1)
         window.blit(primer_fondo, (0, 0))
         izq.draw()
         izq.update(keys, walls)
